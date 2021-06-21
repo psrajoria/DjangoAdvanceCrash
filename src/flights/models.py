@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Airport(models.Model):
     code = models.CharField(max_length=3)
@@ -15,3 +16,12 @@ class Flights(models.Model):
 
     def __str__(self):
         return f"{self.id}: {self.origin} to {self.destination}"
+
+
+class Passengers(models.Model):
+    fname = models.CharField(max_length=64)
+    lname = models.CharField(max_length=64)
+    flights = models.ManyToManyField(Flights, blank=True, related_name="passengers")
+
+    def __str__(self):
+        return f"{self.fname} {self.lname}"

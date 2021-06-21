@@ -1,0 +1,17 @@
+
+    <h2>Flight Detail</h2>    
+        Flight : {{ flight.id }} <br>
+        Origin: {{flight.origin}} <br>
+        Destination: {{flight.destination}} <br>
+
+
+        <h2>Passesngers on Flight</h2>
+
+        {% for passenger in passengers %}
+        <li>{{ passenger }}</li>
+        {% empty %}
+        No Passesngers
+        {% endfor %}
+<br>
+
+<a href="{% url 'flights:index' %}">Back to Flights</a>
