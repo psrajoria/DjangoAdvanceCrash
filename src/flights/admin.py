@@ -7,6 +7,8 @@ from .models import Flights,Airport,Passengers
 class FlightAdmin(admin.ModelAdmin):
     list_display=("id","origin","destination","duration")
 
+
+### Horizontal filter to choose or remove flights
 class PassengerAdmin(admin.ModelAdmin):
     filter_horizontal=("flights",)
 
